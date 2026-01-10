@@ -1,0 +1,29 @@
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# Model weights (large files)
+*.pt
+*.pth
+*.h5
+*.onnx
+
+# Generated data
+data/extracted_faces/
+data/videos/
+
+# Datasets
+datasets/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

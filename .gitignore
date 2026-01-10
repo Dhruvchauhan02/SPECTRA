@@ -8,6 +8,7 @@ __pycache__/
 # Environment variables
 .env
 
+<<<<<<< HEAD
 # Model weights (large files)
 *.pt
 *.pth
@@ -24,6 +25,16 @@ datasets/
 # Logs
 *.log
 
+=======
+# Model files
+*.pt
+*.h5
+*.onnx
+
+# Datasets
+datasets/
+
+>>>>>>> f2495867958938e012141c89414e34c3f959d012
 # OS files
 .DS_Store
 Thumbs.db

@@ -4,7 +4,7 @@ from ai_models.face_recognition.detector import RetinaFaceDetector
 from ai_models.face_recognition.align import align_face
 
 # Paths
-IMAGE_PATH = "data/images/test.jpg"
+IMAGE_PATH = "data/images/test1.jpg"
 OUTPUT_DIR = "data/extracted-faces/aligned/test"
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)

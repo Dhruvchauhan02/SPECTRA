@@ -1,40 +1,28 @@
-# Virtual environment
+# Virtual Environment
 venv/
 
-# Python cache
+# Python Cache
 __pycache__/
 *.pyc
 
-# Environment variables
+# Environment Variables
 .env
 
-<<<<<<< HEAD
-# Model weights (large files)
+# Model / Weight Files
+*.h5
+*.onnx
 *.pt
 *.pth
-*.h5
-*.onnx
 
-# Generated data
-data/extracted_faces/
-data/videos/
+# Generated Data
+data/embeddings/
+data/extracted-faces/
+data/images/
 
-# Datasets
-datasets/
+# DeepFace / InsightFace auto downloads
+.deepface/
+.insightface/
 
-# Logs
-*.log
-
-=======
-# Model files
-*.pt
-*.h5
-*.onnx
-
-# Datasets
-datasets/
-
->>>>>>> f2495867958938e012141c89414e34c3f959d012
-# OS files
+# OS Files
 .DS_Store
 Thumbs.db

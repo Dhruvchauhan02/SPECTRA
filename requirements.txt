@@ -3,3 +3,12 @@ opencv-python
 torch
 torchvision
 Pillow
+torch>=2.0
+torchvision
+timm
+opencv-python
+numpy
+scipy
+transformers
+huggingface_hub
+scikit-learn

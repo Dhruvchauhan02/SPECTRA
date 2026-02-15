@@ -1,27 +1,34 @@
 import cv2
 import numpy as np
 
-
 class FrequencyDetector:
-    def predict_proba(self, img_bgr):
-        gray = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2GRAY)
+    def __init__(self):
+        self.alpha = 2.5
+
+    def _analyze(self, image):
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
         f = np.fft.fft2(gray)
         fshift = np.fft.fftshift(f)
-        magnitude = np.log(np.abs(fshift) + 1)
+        magnitude = np.abs(fshift)
+
+        magnitude = np.log1p(magnitude)
 
         h, w = magnitude.shape
-        center = (h // 2, w // 2)
-        radius = min(h, w) // 8
+        cx, cy = h // 2, w // 2
+        r = min(cx, cy) // 4
 
         mask = np.ones((h, w), np.uint8)
-        cv2.circle(mask, center, radius, 0, -1)
+        cv2.circle(mask, (cy, cx), r, 0, -1)
 
-        high_freq = magnitude * mask
+        high_freq = np.mean(magnitude[mask == 1])
+        low_freq = np.mean(magnitude[mask == 0]) + 1e-8
 
-        score = np.mean(high_freq)
+        raw_score = high_freq / low_freq
 
-        # Normalize to probability-like range
-        p_fake = min(1.0, max(0.0, (score - 2.0) / 4.0))
+        p_fake = 1.0 - np.exp(-self.alpha * raw_score)
+        return float(np.clip(p_fake, 0.0, 1.0))
 
-        return float(p_fake)
+    # 🔥 REQUIRED by your pipeline
+    def predict_proba(self, image):
+        return self._analyze(image)

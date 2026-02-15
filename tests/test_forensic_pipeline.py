@@ -4,7 +4,7 @@ from ai_models.deepfake_detection.pipeline import DeepfakePipeline
 def main():
     pipeline = DeepfakePipeline(device="cpu")
 
-    image_path = "data/extracted-faces/aligned/test/test.jpg"   # change to your test image
+    image_path = "data/extracted-faces/aligned/test/r5.jpg"   # change to your test image
 
     result = pipeline.analyze(image_path)
 

@@ -8,16 +8,17 @@ __pycache__/
 # Environment Variables
 .env
 
-# Model / Weight Files
-*.h5
-*.onnx
+# Large Model Files (REMOVE if you want to upload your trained model)
 *.pt
 *.pth
 
 # Generated Data
-data/embeddings/
-data/extracted-faces/
-data/images/
+data/
+dataset/
+raw_frames/
+
+# Temporary Files
+temp_*.jpg
 
 # DeepFace / InsightFace auto downloads
 .deepface/
@@ -26,3 +27,6 @@ data/images/
 # OS Files
 .DS_Store
 Thumbs.db
+
+# Uvicorn cache
+*.log
